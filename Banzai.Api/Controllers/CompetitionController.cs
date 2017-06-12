@@ -14,22 +14,13 @@ namespace Banzai.Api.Controllers
         [HttpGet("[action]/{id}")]
         public async Task<IActionResult> GetById(string id)
         {
-            var requestah = new Requestah();
-            
-            var response = 
-                await requestah.ExecuteAsync<List<Competition>>(BuildRequest(id));
-            
+            var response =
+                await new Requestah().ExecuteAsync<List<Competition>>(BuildRequest(id));
+
             return Ok(response.Single(x => x.League.Equals("PL")));
         }
-
-        private static IRestRequest BuildRequest(string id)
-        {
-            var apiResource = $"{Common.Constants.Resource.COMPETITION}";
-
-            var request = 
-                new RestRequest(apiResource, Method.GET).AddUrlSegment("id", id);
-
-            return request;
-        }
+        private IRestRequest BuildRequest(string id) =>
+           new RestRequest($"{Common.Constants.Resource.COMPETITION}", Method.GET)
+              .AddUrlSegment("id", id);
     }
 }

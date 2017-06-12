@@ -1,0 +1,19 @@
+{
+    "games": [
+        {
+            "id": 1,
+            "status": "NOT_STARTED",
+            "period": 1,
+            "home_team": {
+                "id": 1,
+                "name": "Manchester United",
+                "goals": 5
+            },
+            "away_team": {
+                "id": 2,
+                "name": "Liverpool",
+                "goals": 0
+            }            
+        }
+    ]
+}
