@@ -1,7 +1,7 @@
 // import { combineReducers } from 'redux'
-import { CHANGE_STATUS } from '../actions'
+import { CHANGE_STATUS, GameStatus } from '../actions'
 
-export function banzaiApp(state = [], action) {
+export function banzaiApp(state = {status: GameStatus.NOT_STARTED}, action) {
   switch (action.type) {
     case CHANGE_STATUS:
       return [
