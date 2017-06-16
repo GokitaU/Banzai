@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -16,6 +17,16 @@ console.log(store.getState())
 store.dispatch(changeStatus(GameStatus.COMPLETE))
 console.log(store.getState())
 
+let unsubscribe = store.subscribe(() =>
+{
+  var currentState = store.getState();
+  console.log(currentState)
+})
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();
