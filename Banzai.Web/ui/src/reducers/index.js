@@ -1,7 +1,5 @@
 // import { combineReducers } from 'redux'
-import { CHANGE_STATUS, changeStatus } from '../actions'
-
-const { NOT_STARTED } = changeStatus
+import { CHANGE_STATUS } from '../actions'
 
 export function banzaiApp(state = [], action) {
   switch (action.type) {
